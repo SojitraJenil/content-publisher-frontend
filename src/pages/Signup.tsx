@@ -23,7 +23,7 @@ export default function Signup() {
         try {
             await API.post("/auth/signup", form);
             setMessage({ text: "🎉 Signup successful! Redirecting...", type: "success" });
-            setTimeout(() => navigate("/"), 2000);
+            setTimeout(() => navigate("/"), 500);
         } catch (error: any) {
             setMessage({
                 text: error.response?.data?.message || "Signup failed",
@@ -99,8 +99,8 @@ export default function Signup() {
                     type="submit"
                     disabled={loading}
                     className={`w-full py-2 px-4 text-white font-semibold rounded-lg shadow-md transition-transform duration-300 ${loading
-                            ? "bg-blue-300 cursor-not-allowed"
-                            : "bg-blue-500 hover:bg-blue-600 hover:scale-[1.02] active:scale-[0.98]"
+                        ? "bg-blue-300 cursor-not-allowed"
+                        : "bg-blue-500 hover:bg-blue-600 hover:scale-[1.02] active:scale-[0.98]"
                         }`}
                 >
                     {loading ? "Creating..." : "Sign Up"}
