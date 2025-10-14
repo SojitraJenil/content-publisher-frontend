@@ -1,9 +1,9 @@
 import axios from "axios";
 
+console.log("Backend URL:", process.env.REACT_APP_BACKEND_DEPLOYED_URL);
 
-console.log("Backend URL:", process.env.BACKEND_DEPLOYED_URL);
 const API = axios.create({
-    baseURL: process.env.BACKEND_DEPLOYED_URL,
+    baseURL: process.env.REACT_APP_BACKEND_DEPLOYED_URL || "",
 });
 
 API.interceptors.request.use((config) => {
