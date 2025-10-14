@@ -1,5 +1,7 @@
 import axios from "axios";
 
+
+console.log("Backend URL:", process.env.BACKEND_DEPLOYED_URL);
 const API = axios.create({
     baseURL: process.env.BACKEND_DEPLOYED_URL,
 });
