@@ -16,6 +16,8 @@
     "ajv-keywords": "^5.1.0",
     "axios": "^1.12.2",
     "babel-plugin-react-css-modules": "^5.2.6",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.545.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.4",
