@@ -29,7 +29,7 @@ export default function Header({ onLogout }: HeaderProps) {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg"></div>
-                        <h1 className="text-xl font-bold text-gray-900">Publications</h1>
+                        <h1 className="text-xl font-bold text-gray-900">content publisher</h1>
                     </div>
 
                     <div className="flex items-center gap-4">
