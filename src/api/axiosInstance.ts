@@ -1,7 +1,5 @@
 import axios from "axios";
 
-console.log("Backend URL:", process.env.REACT_APP_BACKEND_DEPLOYED_URL);
-
 const API = axios.create({
     baseURL:
         process.env.NODE_ENV === "production"

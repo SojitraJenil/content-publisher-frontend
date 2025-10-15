@@ -13,7 +13,6 @@ export default function Header({ onLogout }: HeaderProps) {
         const fetchUser = async () => {
             try {
                 const res = await API.get("/auth/user");
-                console.log('res1234', res)
                 setUser(res.data);
             } catch (error) {
                 console.error("Failed to fetch user:", error);
