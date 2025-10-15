@@ -1,18 +1,39 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Publications from "./pages/Publications";
+import { useState, useEffect } from "react";
+import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
+import Publications from "./pages/publications/Publications";
 
 function App() {
-  const token = localStorage.getItem("token");
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setToken(localStorage.getItem("token"));
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={token ? <Navigate to="/publications" /> : <Login />} />
+        <Route
+          path="/"
+          element={
+            token ? (
+              <Navigate to="/publications" replace />
+            ) : (
+              <Login setToken={setToken} />
+            )
+          }
+        />
         <Route path="/signup" element={<Signup />} />
         <Route
           path="/publications"
-          element={token ? <Publications /> : <Navigate to="/" />}
+          element={
+            token ? <Publications setToken={setToken} /> : <Navigate to="/" replace />
+          }
         />
       </Routes>
     </BrowserRouter>
