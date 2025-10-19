@@ -8,10 +8,10 @@ import PublicationForm from "./PublicationForm";
 import PublicationCard from "./PublicationCard";
 import API from "../../api/axiosInstance";
 import Header from "../../components/common/Header";
-import LoadingSpinner from "../../components/common/LoadingSpinner";
 import EmptyState from "../../components/common/EmptyState";
 import Modal from "../../components/common/Modal";
 import Notification from "../../components/common/Notification";
+import Loader from "../../components/common/Loader";
 
 interface Publication {
     _id: string;
@@ -272,7 +272,7 @@ export default function Publications({ setToken }: { setToken: (token: string | 
                 </Modal>
 
                 {loading && publications.length === 0 ? (
-                    <LoadingSpinner />
+                    <Loader size="md" />
                 ) : filteredPubs.length === 0 ? (
                     <EmptyState />
                 ) : (

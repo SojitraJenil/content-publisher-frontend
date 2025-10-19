@@ -28,11 +28,26 @@ function App() {
             )
           }
         />
-        <Route path="/signup" element={<Signup />} />
+
+        <Route
+          path="/signup"
+          element={
+            token ? (
+              <Navigate to="/publications" replace />
+            ) : (
+              <Signup setToken={setToken} />
+            )
+          }
+        />
+
         <Route
           path="/publications"
           element={
-            token ? <Publications setToken={setToken} /> : <Navigate to="/" replace />
+            token ? (
+              <Publications setToken={setToken} />
+            ) : (
+              <Navigate to="/" replace />
+            )
           }
         />
       </Routes>
